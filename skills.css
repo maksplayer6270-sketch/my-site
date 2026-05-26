@@ -1,0 +1,482 @@
+/* 1. Сбрасываем стандартные отступы браузера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. CSS переменные для светлой темы (по умолчанию) */
+:root {
+    /* Цвета фона */
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --bg-header: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-nav: rgba(255, 255, 255, 0.15);
+    --bg-card: #ffffff;
+    --bg-footer: #2c3e50;
+    
+    /* Цвета текста */
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-light: #ffffff;
+    --text-muted: #777777;
+    
+    /* Цвета акцентов */
+    --accent-primary: #667eea;
+    --accent-secondary: #764ba2;
+    --accent-hover: #ffd700;
+    
+    /* Цвета границ и теней */
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.15);
+    
+    /* Плавные переходы */
+    --transition: all 0.3s ease;
+}
+
+/* 3. Тёмная тема */
+body.dark-theme {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-header: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+    --bg-nav: rgba(0, 0, 0, 0.3);
+    --bg-card: #0f3460;
+    --bg-footer: #0f3460;
+    
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-light: #ffffff;
+    --text-muted: #a0a0a0;
+    
+    --accent-primary: #8b74ff;
+    --accent-secondary: #9b59b6;
+    --accent-hover: #fdcb6e;
+    
+    --border-color: #2c3e50;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', 'Times New Roman', serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+/* Стили для шапки */
+.main-header {
+    background: var(--bg-header);
+    color: var(--text-light);
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+}
+
+.main-header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.5s ease;
+}
+
+.substitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.theme-name {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+body.dark-theme .theme-toggle .fa-moon {
+    display: none;
+}
+
+body.dark-theme .theme-toggle .fa-sun {
+    display: inline;
+}
+
+/* Навигационное меню */
+.main-nav {
+    background: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: var(--transition);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-menu li a.active {
+    background-color: var(--accent-hover);
+    color: #3a5a8c;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+/* Основное содержание для страницы навыков */
+.skills-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Секции */
+.skills-intro,
+.skills-list-section,
+.skills-table-section {
+    background-color: var(--bg-secondary);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.skills-intro p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* Заголовки */
+h2 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-primary);
+    font-size: 1.8rem;
+}
+
+h2 i {
+    margin-right: 10px;
+}
+
+h3 {
+    color: var(--accent-primary);
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+}
+
+h3 i {
+    margin-right: 10px;
+}
+
+/* Список навыков */
+.skills-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.skills-list li {
+    margin-bottom: 0.8rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-left: 3px solid var(--accent-primary);
+    transition: var(--transition);
+    color: var(--text-primary);
+}
+
+.skills-list li:hover {
+    transform: translateX(5px);
+    background-color: var(--bg-primary);
+}
+
+.skills-list li i {
+    color: var(--accent-primary);
+    margin-right: 10px;
+    width: 25px;
+}
+
+/* Таблица навыков */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.skills-table th,
+.skills-table td {
+    border: 1px solid var(--border-color);
+    padding: 12px 15px;
+    text-align: left;
+    color: var(--text-primary);
+}
+
+.skills-table thead {
+    background: var(--bg-header);
+    color: var(--text-light);
+}
+
+.skills-table th {
+    font-weight: bold;
+}
+
+.skills-table tbody tr {
+    transition: var(--transition);
+}
+
+.skills-table tbody tr:hover {
+    background-color: var(--bg-primary);
+}
+
+.skills-table tbody tr:nth-child(even) {
+    background-color: rgba(102, 126, 234, 0.05);
+}
+
+body.dark-theme .skills-table tbody tr:nth-child(even) {
+    background-color: rgba(139, 116, 255, 0.1);
+}
+
+.skills-table td i {
+    color: var(--accent-primary);
+    margin-right: 8px;
+}
+
+/* Подвал сайта */
+.main-footer {
+    background-color: var(--bg-footer);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    transition: var(--transition);
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.js-status {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .main-header {
+        padding: 20px 15px;
+    }
+
+    .main-header h1 {
+        font-size: 24px;
+    }
+
+    .substitle {
+        font-size: 14px;
+    }
+
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* Меню становится вертикальным */
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    /* Страница навыков */
+    .skills-page {
+        padding: 0 0.5rem;
+    }
+
+    .skills-intro,
+    .skills-list-section,
+    .skills-table-section {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .skills-list li {
+        font-size: 0.9rem;
+    }
+
+    /* Адаптация таблицы */
+    .skills-table th,
+    .skills-table td {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+        min-width: 100px;
+    }
+
+    .main-footer {
+        padding: 15px;
+        margin-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .main-header h1 {
+        font-size: 20px;
+    }
+
+    .substitle {
+        font-size: 12px;
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .nav-menu li a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .skills-page {
+        padding: 0 0.3rem;
+    }
+
+    .skills-intro,
+    .skills-list-section,
+    .skills-table-section {
+        padding: 0.8rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    .skills-list li {
+        font-size: 0.85rem;
+    }
+
+    .skills-table th,
+    .skills-table td {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+    }
+
+    .main-footer {
+        padding: 12px;
+    }
+
+    .footer-content p {
+        font-size: 11px;
+    }
+}

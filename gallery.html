@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Топ лучших произведений Стивена Кинга</title>
+    <link rel="stylesheet" href="gallery.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="gallery-header">
+        <div class="header-content">
+            <h1><i class="fas fa-images"></i> Фотогалерея</h1>
+            <p class="substitle">Коллекция изображений по теме: <span class="theme-name">Топ лучших произведений Стивена Кинга</span></p>
+        </div>
+        
+        <!-- Кнопка переключения темы -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-user"></i> О себе</a></li>
+                <li><a href="skills.html" class="nav-link"><i class="fas fa-toolbox"></i> Мои навыки</a></li>
+                <li><a href="gallery.html" class="nav-link active"><i class="fas fa-images"></i> Галерея</a></li>
+                <li><a href="facts.html" class="nav-link"><i class="fas fa-lightbulb"></i> Факты</a></li>
+                <li><a href="contacts.html" class="nav-link"><i class="fas fa-phone"></i> Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main class="gallery-container">
+        <div class="controls-panel">
+            <div class="stats">
+                <span class="stat-item">
+                    <i class="fas fa-image"></i>
+                    Изображений: <span id="image-counter">0</span>
+                </span>
+                <span class="stat-item">
+                    <i class="fas fa-heart"></i>
+                    Всего лайков: <span id="total-likes">0</span>
+                </span>
+            </div>
+            <div class="filters">
+                <div class="filters-container" style="position: relative;">
+                    <button id="filters-toggle" class="filters-btn">
+                        <i class="fas fa-filter"></i> Фильтры
+                    </button>
+                    <div class="filter-menu">
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" data-genre="all">Все</button>
+                            <button class="filter-btn" data-genre="thriller">Триллер</button>
+                            <button class="filter-btn" data-genre="fantasy">Фантастика</button>
+                            <button class="filter-btn" data-genre="horrors">Ужасы</button>
+                            <button class="filter-btn" data-genre="favorites">★ Избранное</button>
+                        </div>
+                        <div class="view-controls-in-menu">
+                            <h4>Вид отображения:</h4>
+                            <button class="view-btn-menu active" data-view="grid">
+                                <i class="fas fa-th"></i> Сетка
+                            </button>
+                            <button class="view-btn-menu" data-view="list">
+                                <i class="fas fa-list"></i> Список
+                            </button>
+                        </div>
+                        <button class="reset-filters-btn">Сбросить фильтры</button>
+                    </div>
+                </div>
+                <div class="selected-filters"></div>
+            </div>
+        </div>
+        
+        <div class="gallery-grid" id="image-gallery">
+            <!-- Карточка Мизери -->
+            <article class="image-card" data-genre="thriller">
+                <div class="card-image">
+                    <img src="images/Мизери 1987.jpg"
+                         alt="Мизери"
+                         class="gallery-img"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/400x300/667eea/white?text=Мизери'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="1">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="far fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Мизери</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> июнь 1987 года</p>
+                    <p class="image-description">«Мизери» (1987) — напряжённый психологический триллер о писателе Поле Шелдене, попавшем в плен к своей фанатичной поклоннице Энни Уилкс. Мастерски выстроенный саспенс, клаустрофобическая атмосфера.</p>
+                    <p class="image-description">В рейтингах лучших книг Стивена Кинга «Мизери» неизменно входит в топ‑5. Эксперты и читатели выделяют:</p>
+                    <ul class="description-list">
+                        <li>реалистичный, «человеческий» ужас без мистики;</li>
+                        <li>блестящую психологическую дуэль двух персонажей;</li>
+                        <li>гнетущую атмосферу замкнутого пространства;</li>
+                        <li>метафору творческого кризиса через сюжет о переписывании романа;</li>
+                        <li>харизматичный и пугающий образ Энни Уилкс — одного из самых запоминающихся антагонистов Кинга.</li>
+                    </ul>
+                    <p class="image-description">Книга показывает мастерство Кинга в создании напряжения через психологизм, а не через сверхъестественное — именно поэтому она остаётся актуальной и спустя десятилетия.</p>
+                    <div class="image-tags">
+                        <span class="tag">триллер</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка Сияние -->
+            <article class="image-card" data-genre="horrors">
+                <div class="card-image">
+                    <img src="images/Сияние 1977.jpeg"
+                         alt="Сияние"
+                         class="gallery-img"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/400x300/667eea/white?text=Сияние'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="2">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="far fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Сияние</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 1 января 1977 года</p>
+                    <p class="image-description">«Сияние» (1977) — психологический триллер Стивена Кинга о семье Торрансов, переехавшей в изолированный отель «Оверлук» на зиму. Под влиянием тёмных сил отеля глава семьи Джек постепенно теряет рассудок.</p>
+                    <p class="image-description">Почему книга выделяется:</p>
+                    <ul class="description-list">
+                        <li><strong>Сложный герой.</strong> Джек — любящий отец и муж, но борется с алкоголизмом и гневом; его падение показано реалистично.</li>
+                        <li><strong>Зловещий отель.</strong> «Оверлук» выступает как живой антагонист с мрачной историей.</li>
+                        <li><strong>Изоляция.</strong> Отрезанность от мира ускоряет разрушение психики Джека.</li>
+                        <li><strong>Двусмысленность.</strong> Неясно, реальны ли ужасы или это плод распадающегося сознания.</li>
+                        <li><strong>Дар Дэнни.</strong> Сверхъестественные способности сына добавляют глубины и раскрывают тему детской уязвимости.</li>
+                    </ul>
+                    <div class="image-tags">
+                        <span class="tag">ужасы</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка Оно -->
+            <article class="image-card" data-genre="horrors">
+                <div class="card-image">
+                    <img src="images/Оно 1986.jpg"
+                         alt="Оно"
+                         class="gallery-img"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/400x300/667eea/white?text=Оно'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="3">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="far fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Оно</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> сентябрь 1986 года</p>
+                    <p class="image-description">«Оно» (1986) — культовый роман Стивена Кинга о семёрке друзей, противостоящих монстру-клоуну Пеннивайзу — воплощению детских страхов.</p>
+                    <p class="image-description">Почему книга в топе рейтингов Кинга:</p>
+                    <ul class="description-list">
+                        <li><strong>Психологизм.</strong> Детские травмы влияют на героев во взрослой жизни.</li>
+                        <li><strong>Двойная хронология.</strong> Повествование о детстве и зрелости показывает трансформацию страхов.</li>
+                        <li><strong>Пеннивайз.</strong> Клоун — символ коллективного ужаса.</li>
+                        <li><strong>Сила дружбы.</strong> Объединение героев — ключ к победе над злом.</li>
+                        <li><strong>Социальный подтекст.</strong> Зло в Дерри подпитывают равнодушие взрослых и замалчивание проблем.</li>
+                    </ul>
+                    <p class="image-description">Роман сочетает хоррор с психологизмом и социальной критикой — поэтому остаётся знаковым произведением Кинга.</p>
+                    <div class="image-tags">
+                        <span class="tag">ужасы</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка Кладбище домашних животных -->
+            <article class="image-card" data-genre="horrors">
+                <div class="card-image">
+                    <img src="images/Клатбище домашних жывотных 1983.jpg"
+                         alt="Кладбище домашних животных"
+                         class="gallery-img"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/400x300/667eea/white?text=Кладбище+домашних+животных'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="4">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="far fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Кладбище домашних животных</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 1983 год</p>
+                    <p class="image-description">«Кладбище домашних животных» (1983) — мрачная притча о семье Кридов, переехавшей в городок с древним индейским кладбищем. Попытка нарушить закон «мёртвые должны оставаться мёртвыми» приводит к ужасным последствиям.</p>
+                    <p class="image-description">Почему книга в топе рейтингов:</p>
+                    <ul class="description-list">
+                        <li><strong>Архетипический страх:</strong> возвращение утраченного стоит чудовищной цены.</li>
+                        <li><strong>Семейная драма:</strong> горе родителей, потерявших ребёнка.</li>
+                        <li><strong>Символика кладбища:</strong> портал, где рушатся законы природы.</li>
+                        <li><strong>Моральный выбор:</strong> на что готов человек ради возвращения любимого?</li>
+                        <li><strong>Атмосфера фатальности:</strong> неизбежность страшного исхода.</li>
+                    </ul>
+                    <p class="image-description">Роман сочетает бытовой реализм с потусторонним ужасом — поэтому остаётся одной из самых мощных работ Кинга.</p>
+                    <div class="image-tags">
+                        <span class="tag">ужасы</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка 11/22/63 -->
+            <article class="image-card" data-genre="fantasy">
+                <div class="card-image">
+                    <img src="images/11.22.63 2011.jpg"
+                         alt="11/22/63"
+                         class="gallery-img"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/400x300/667eea/white?text=11%2F22%2F63'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="5">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="far fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">11/22/63</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 2011 год</p>
+                    <p class="image-description">«11/22/63» Стивена Кинга — роман о путешествиях во времени: учитель Джейк Эппинг попадает в 1958 год, чтобы предотвратить убийство Кеннеди. Экранизирован с Джеймсом Франко.</p>
+                    <p class="image-description">Почему в рейтингах лучших у Кинга:</p>
+                    <ul class="description-list">
+                        <li><strong>Атмосфера 1950–60‑х:</strong> детально воссоздана эпоха — от мелодий до социальных проблем.</li>
+                        <li><strong>Эффект бабочки:</strong> благие намерения ведут к трагедии.</li>
+                        <li><strong>Любовь и самопознание:</strong> любовная линия раскрывает героя, путешествие учит ответственности.</li>
+                        <li><strong>Не типичный Кинг:</strong> не хоррор, а триллер + драма + историческая фантастика.</li>
+                        <li><strong>Финал без хеппи‑энда:</strong> заставляет задуматься.</li>
+                    </ul>
+                    <p class="image-description">Увлекательный сюжет и глубокие темы сделали книгу любимой у поклонников.</p>
+                    <div class="image-tags">
+                        <span class="tag">фантастика</span>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Карточка Зелёная миля -->
+            <article class="image-card" data-genre="fantasy">
+                <div class="card-image">
+                    <img src="images/Зелёная миля 1996.jpg"
+                         alt="Зелёная миля"
+                         class="gallery-img"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/400x300/667eea/white?text=Зелёная+миля'">
+                    <div class="image-overlay">
+                        <button class="like-btn" data-id="6">
+                            <i class="far fa-heart"></i>
+                            <span class="like-count">0</span>
+                        </button>
+                        <button class="zoom-btn">
+                            <i class="far fa-expand"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <h3 class="image-title">Зелёная миля</h3>
+                    <p class="image-date"><i class="far fa-calendar"></i> 1996 год</p>
+                    <p class="image-description">Эпическая история о надзирателе смертного блока Поле Эджкомбе и его встрече с Джоном Коффи — гигантом с детской душой и даром исцеления. Действие происходит в 1930‑е годы. Кинг затрагивает темы вины и невиновности, чуда и жестокости, справедливости и милосердия.</p>
+                    <p class="image-description">Книга — одна из самых значимых в творчестве Стивена Кинга. Её ценят за:</p>
+                    <ul class="description-list">
+                        <li><strong>Глубокую проработку персонажей.</strong></li>
+                        <li><strong>Сочетание жанров.</strong> Тюремная драма и магический реализм.</li>
+                        <li><strong>Размышления о социальной проблематике.</strong> Расовая дискриминация и судебная система 1930‑х годов.</li>
+                        <li><strong>Символические образы.</strong> В т. ч. параллели между Коффи и Христом.</li>
+                        <li><strong>Трогательное повествование.</strong> История от лица пожилого Пола Эджкомба.</li>
+                        <li><strong>Культовый статус.</strong> Закреплён благодаря экранизации 1999 года.</li>
+                    </ul>
+                    <p class="image-description">«Зелёная миля» — гуманистическая драма о добре и зле, милосердии и судьбе.</p>
+                    <div class="image-tags">
+                        <span class="tag">тёмное фэнтези</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        
+        <aside class="gallery-info">
+            <h3><i class="fas fa-lightbulb"></i> Интересный факт</h3>
+            <p>Любопытный факт: по статистике, выбор книги для чтения занимает у людей в среднем 15–20 минут! Наш сайт экономит ваше время: здесь собраны Топ лучших произведений Стивена Кинга с развёрнутыми описаниями. Вы сразу поймёте, подойдёт ли произведение под ваше настроение. Попробуйте — и забудьте о долгих поисках!</p>
+            <p style="margin-top: 10px;"><strong>А знаете ли вы?</strong> Стивен Кинг написал более 60 романов и 200 рассказов. Его первая книга «Кэрри» была опубликована в 1974 году, а сейчас он считается одним из самых экранизируемых авторов в мире — более 100 фильмов и сериалов снято по его произведениям!</p>
+        </aside>
+        
+        <!-- Кнопка перехода на квиз (внизу страницы) - ЯРКАЯ И ВИДИМАЯ -->
+        <div class="quiz-promo-section" style="margin-top: 40px; text-align: center;">
+            <div class="quiz-promo-card" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 35px 30px; color: white; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                <i class="fas fa-gamepad" style="font-size: 3.5rem; margin-bottom: 15px; display: inline-block;"></i>
+                <h3 style="font-size: 1.8rem; margin-bottom: 10px; font-weight: bold;">🎮 Проверь свои знания! 🎮</h3>
+                <p style="margin-bottom: 25px; font-size: 1.1rem; opacity: 0.95;">Пройди мой квиз о Стивене Кинге и узнай, насколько хорошо ты знаком с творчеством Короля ужасов!</p>
+                <a href="quiz.html" class="quiz-promo-btn" style="display: inline-flex; align-items: center; gap: 12px; background: #ffd700; color: #333; padding: 14px 35px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                    <i class="fas fa-play" style="font-size: 1rem;"></i>
+                    Начать квиз
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <footer class="gallery-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year">2026</span> Макс. Все права защищены</p>
+            <p class="js-status">JavaScript загружен и работает!</p>
+            <p class="js-status"><i class="fas fa-code"></i> Сайт работает на современном HTML/CSS</p>
+        </div>
+    </footer>
+    
+    <script src="script for gallery.js"></script>
+    <script src="theme.js"></script>
+</body>
+</html>

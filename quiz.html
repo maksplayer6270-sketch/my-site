@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квиз | Проверь свои знания о Стивене Кинге</title>
+    <link rel="stylesheet" href="styles for quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="quiz-header">
+        <div class="header-content">
+            <h1><i class="fas fa-question-circle"></i> Квиз: Знаешь ли ты Стивена Кинга?</h1>
+            <p class="substitle">Проверь свои знания о <span class="theme-name">Короле ужасов</span></p>
+        </div>
+        
+        <!-- Кнопка переключения темы -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <!-- Квиз - текущая страница -->
+                <li>
+                    <a href="quiz.html" class="nav-link active">
+                        <i class="fas fa-gamepad"></i> Квиз
+                    </a>
+                </li>
+                <!-- Правила квиза -->
+                <li>
+                    <a href="#" class="nav-link" id="rules-link">
+                        <i class="fas fa-scroll"></i> Правила
+                    </a>
+                </li>
+                <!-- Лучшие результаты -->
+                <li>
+                    <a href="#" class="nav-link" id="records-link">
+                        <i class="fas fa-trophy"></i> Рекорды
+                    </a>
+                </li>
+                <!-- О квизе -->
+                <li>
+                    <a href="#" class="nav-link" id="about-quiz-link">
+                        <i class="fas fa-info-circle"></i> О квизе
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Модальное окно для правил -->
+        <div id="rules-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3><i class="fas fa-scroll"></i> Правила квиза</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> В квизе 10 вопросов о Стивене Кинге</li>
+                    <li><i class="fas fa-check-circle"></i> У каждого вопроса 4 варианта ответа</li>
+                    <li><i class="fas fa-check-circle"></i> Выберите один правильный ответ</li>
+                    <li><i class="fas fa-check-circle"></i> На все вопросы нужно ответить, чтобы завершить квиз</li>
+                    <li><i class="fas fa-check-circle"></i> После завершения вы увидите свой результат</li>
+                    <li><i class="fas fa-check-circle"></i> Можно пройти квиз заново в любое время</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Модальное окно для рекордов -->
+        <div id="records-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3><i class="fas fa-trophy"></i> Таблица рекордов</h3>
+                <table class="records-table">
+                    <thead>
+                        <tr>
+                            <th>Место</th>
+                            <th>Игрок</th>
+                            <th>Результат</th>
+                            <th>Дата</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>🥇 1</td><td>Мастер ужасов</td><td>10/10</td><td>Сегодня</td></tr>
+                        <tr><td>🥈 2</td><td>KingFan</td><td>9/10</td><td>Вчера</td></tr>
+                        <tr><td>🥉 3</td><td>Постоянный читатель</td><td>8/10</td><td>2 дня назад</td></tr>
+                        <tr><td>4</td><td>Новичок</td><td>7/10</td><td>3 дня назад</td></tr>
+                        <tr><td>5</td><td>Любопытный</td><td>6/10</td><td>5 дней назад</td></tr>
+                    </tbody>
+                </table>
+                <p class="records-note">Пройдите квиз, чтобы попасть в таблицу рекордов!</p>
+            </div>
+        </div>
+        
+        <!-- Модальное окно для информации -->
+        <div id="about-quiz-modal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3><i class="fas fa-info-circle"></i> О квизе</h3>
+                <p>Этот квиз создан для проверки знаний о жизни и творчестве знаменитого писателя Стивена Кинга.</p>
+                <p><strong>Что вы узнаете:</strong></p>
+                <ul>
+                    <li>Интересные факты из биографии писателя</li>
+                    <li>Названия и даты выхода известных романов</li>
+                    <li>Экранизации произведений</li>
+                    <li>Интересные детали творческого процесса</li>
+                </ul>
+                <p><strong>Совет:</strong> Если вы не знаете ответа на вопрос, попробуйте угадать! Это поможет запомнить правильный вариант в следующий раз.</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="quiz-container">
+        <div class="quiz-wrapper">
+            <!-- Блок с прогрессом -->
+            <div class="quiz-progress">
+                <div class="progress-stats">
+                    <span class="question-counter"><i class="fas fa-question"></i> Вопрос <span id="current-question">1</span> из <span id="total-questions">10</span></span>
+                    <span class="score-display"><i class="fas fa-trophy"></i> Счёт: <span id="current-score">0</span></span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
+            </div>
+
+            <!-- Блок с вопросом -->
+            <div class="quiz-card" id="quiz-card">
+                <div class="quiz-icon">
+                    <i class="fas fa-skull"></i>
+                </div>
+                <h2 id="question-text">Загрузка вопросов...</h2>
+                <div class="answers-grid" id="answers-grid">
+                    <!-- Ответы будут добавляться через JavaScript -->
+                </div>
+                <div class="quiz-buttons" id="quiz-buttons">
+                    <button class="nav-btn next-btn" id="next-btn">
+                        Далее <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Блок с результатами (изначально скрыт) -->
+            <div class="results-card" id="results-card" style="display: none;">
+                <div class="results-icon">
+                    <i class="fas fa-crown"></i>
+                </div>
+                <h2>Ваш результат</h2>
+                <div class="score-circle">
+                    <span class="final-score" id="final-score">0</span>
+                    <span class="total-score">/10</span>
+                </div>
+                <p class="result-message" id="result-message"></p>
+                <div class="results-details" id="results-details"></div>
+                <button class="restart-btn" id="restart-btn">
+                    <i class="fas fa-redo-alt"></i> Пройти заново
+                </button>
+                <button class="gallery-btn" id="gallery-btn">
+                    <i class="fas fa-images"></i> Вернуться в галерею
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="quiz-footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year">2026</span> Макс. Все права защищены</p>
+            <p class="js-status"><i class="fas fa-code"></i> Сайт работает на современном HTML/CSS</p>
+        </div>
+    </footer>
+
+    <script src="script for quiz.js"></script>
+    <script src="theme.js"></script>
+    
+    <script>
+        // Модальные окна для меню квиза
+        document.addEventListener('DOMContentLoaded', function() {
+            const rulesModal = document.getElementById('rules-modal');
+            const recordsModal = document.getElementById('records-modal');
+            const aboutModal = document.getElementById('about-quiz-modal');
+            const rulesLink = document.getElementById('rules-link');
+            const recordsLink = document.getElementById('records-link');
+            const aboutLink = document.getElementById('about-quiz-link');
+            
+            function showModal(modal) {
+                modal.style.display = 'flex';
+            }
+            
+            function hideModal(modal) {
+                modal.style.display = 'none';
+            }
+            
+            if (rulesLink) rulesLink.addEventListener('click', (e) => { e.preventDefault(); showModal(rulesModal); });
+            if (recordsLink) recordsLink.addEventListener('click', (e) => { e.preventDefault(); showModal(recordsModal); });
+            if (aboutLink) aboutLink.addEventListener('click', (e) => { e.preventDefault(); showModal(aboutModal); });
+            
+            document.querySelectorAll('.close-modal').forEach(closeBtn => {
+                closeBtn.addEventListener('click', function() {
+                    hideModal(rulesModal);
+                    hideModal(recordsModal);
+                    hideModal(aboutModal);
+                });
+            });
+            
+            window.addEventListener('click', (e) => {
+                if (e.target === rulesModal) hideModal(rulesModal);
+                if (e.target === recordsModal) hideModal(recordsModal);
+                if (e.target === aboutModal) hideModal(aboutModal);
+            });
+        });
+    </script>
+</body>
+</html>

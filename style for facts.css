@@ -1,0 +1,506 @@
+/* 1. Сбрасываем стандартные отступы браузера */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 2. CSS переменные для светлой темы (по умолчанию) */
+:root {
+    /* Цвета фона */
+    --bg-primary: #f5f5f5;
+    --bg-secondary: #ffffff;
+    --bg-header: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bg-nav: rgba(255, 255, 255, 0.15);
+    --bg-card: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    --bg-footer: #2c3e50;
+    --bg-fun: #e3f2fd;
+    
+    /* Цвета текста */
+    --text-primary: #333333;
+    --text-secondary: #555555;
+    --text-light: #ffffff;
+    --text-muted: #777777;
+    
+    /* Цвета акцентов */
+    --accent-primary: #667eea;
+    --accent-secondary: #764ba2;
+    --accent-hover: #ffd700;
+    
+    /* Цвета границ и теней */
+    --border-color: #e0e0e0;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.2);
+    
+    /* Плавные переходы */
+    --transition: all 0.3s ease;
+}
+
+/* 3. Тёмная тема */
+body.dark-theme {
+    --bg-primary: #1a1a2e;
+    --bg-secondary: #16213e;
+    --bg-header: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+    --bg-nav: rgba(0, 0, 0, 0.3);
+    --bg-card: linear-gradient(135deg, #1e5a8a 0%, #1a4a6e 100%);
+    --bg-footer: #0f3460;
+    --bg-fun: #1a3a4a;
+    
+    --text-primary: #e0e0e0;
+    --text-secondary: #c0c0c0;
+    --text-light: #ffffff;
+    --text-muted: #a0a0a0;
+    
+    --accent-primary: #8b74ff;
+    --accent-secondary: #9b59b6;
+    --accent-hover: #fdcb6e;
+    
+    --border-color: #2c3e50;
+    --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Общие стили */
+body {
+    font-family: 'Segoe UI', 'Times New Roman', serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 20px;
+    transition: var(--transition);
+}
+
+/* 4. Стили для шапки */
+.facts-header {
+    background: var(--bg-header);
+    color: var(--text-light);
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    box-shadow: var(--shadow-md);
+}
+
+.header-content h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    animation: fadeInDown 0.5s ease;
+}
+
+.header-content h1 i {
+    margin-right: 10px;
+}
+
+.substitle {
+    font-size: 18px;
+    opacity: 0.9;
+}
+
+.theme-name {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+/* Кнопка переключения темы */
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    backdrop-filter: blur(5px);
+}
+
+.theme-toggle:hover {
+    transform: rotate(15deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.theme-toggle .fa-sun {
+    display: none;
+}
+
+body.dark-theme .theme-toggle .fa-moon {
+    display: none;
+}
+
+body.dark-theme .theme-toggle .fa-sun {
+    display: inline;
+}
+
+/* 5. Навигационное меню */
+.main-nav {
+    background: var(--bg-nav);
+    backdrop-filter: blur(10px);
+    padding: 15px 20px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.nav-menu li a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: var(--transition);
+    display: inline-block;
+    white-space: nowrap;
+}
+
+.nav-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-menu li a.active {
+    background-color: var(--accent-hover);
+    color: #3a5a8c;
+    border-radius: 10px;
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+/* 6. Основное содержание */
+.facts-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    min-height: calc(100vh - 300px);
+}
+
+/* Вступление */
+.facts-intro {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    background-color: var(--bg-secondary);
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.facts-intro h2 {
+    color: var(--accent-primary);
+    font-size: 2rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.facts-intro h2 i {
+    margin-right: 10px;
+}
+
+.facts-intro p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Сетка карточек фактов */
+.fact-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Стиль отдельной карточки факта */
+.fact-card {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 25px;
+    color: var(--text-light);
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+}
+
+.fact-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.fact-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.fact-card h3 {
+    color: var(--text-light);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+.fact-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Блок с забавным фактом */
+.fun-fact {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.fun-box {
+    background-color: var(--bg-fun);
+    border-left: 5px solid var(--accent-primary);
+    padding: 25px;
+    border-radius: 0 16px 16px 0;
+    max-width: 700px;
+    margin: 0 auto;
+    transition: var(--transition);
+}
+
+.fun-box h3 {
+    color: var(--accent-primary);
+    margin-bottom: 10px;
+    font-size: 1.4rem;
+}
+
+.fun-box h3 i {
+    margin-right: 8px;
+}
+
+.fun-box p {
+    font-style: italic;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+/* 7. Подвал сайта */
+.facts-footer {
+    background-color: var(--bg-footer);
+    color: var(--text-light);
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    font-size: 14px;
+    transition: var(--transition);
+    margin-top: 2rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.js-status {
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ УСТРОЙСТВ ===== */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    .facts-header {
+        padding: 20px 15px;
+    }
+
+    .facts-header h1 {
+        font-size: 24px;
+    }
+
+    .substitle {
+        font-size: 14px;
+    }
+
+    .theme-toggle {
+        top: 15px;
+        right: 15px;
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    /* Меню становится вертикальным */
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-menu li a {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        white-space: normal;
+        text-align: center;
+    }
+
+    /* Колонки карточек становятся вертикальными */
+    .fact-cards {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Уменьшаем отступы */
+    .facts-container {
+        margin: 1rem auto;
+        padding: 0 0.8rem;
+    }
+
+    .facts-intro {
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    .facts-intro h2 {
+        font-size: 1.5rem;
+    }
+
+    .facts-intro p {
+        font-size: 0.95rem;
+    }
+
+    .fact-card {
+        padding: 20px;
+    }
+
+    .fact-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .fact-icon {
+        font-size: 2rem;
+    }
+
+    .fun-box {
+        padding: 18px;
+        max-width: 95%;
+    }
+
+    .fun-box h3 {
+        font-size: 1.3rem;
+    }
+
+    .fun-box p {
+        font-size: 1rem;
+    }
+
+    .facts-footer {
+        padding: 15px;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    .facts-header h1 {
+        font-size: 20px;
+    }
+
+    .substitle {
+        font-size: 12px;
+    }
+
+    .theme-toggle {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .nav-menu li a {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .facts-container {
+        padding: 0 0.5rem;
+    }
+
+    .facts-intro h2 {
+        font-size: 1.3rem;
+    }
+
+    .facts-intro p {
+        font-size: 0.9rem;
+    }
+
+    .fact-card {
+        padding: 15px;
+    }
+
+    .fact-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .fact-card p {
+        font-size: 0.9rem;
+    }
+
+    .fact-icon {
+        font-size: 1.8rem;
+    }
+
+    .fun-box {
+        padding: 12px;
+    }
+
+    .fun-box h3 {
+        font-size: 1.2rem;
+    }
+
+    .fun-box p {
+        font-size: 0.95rem;
+    }
+
+    .facts-footer {
+        padding: 12px;
+    }
+
+    .footer-content p {
+        font-size: 11px;
+    }
+}

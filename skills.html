@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои навыки | Топ произведений Стивена Кинга</title>
+    <link rel="stylesheet" href="skills.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-content">
+            <h1><i class="fas fa-code"></i> Мои навыки</h1>
+            <p class="substitle">Максим Исаков — <span class="theme-name">студент и начинающий веб-разработчик</span></p>
+        </div>
+        
+        <!-- Кнопка переключения темы -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+            <i class="fas fa-moon"></i>
+            <i class="fas fa-sun"></i>
+        </button>
+        
+        <nav class="main-nav">
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-home"></i> Главная</a></li>
+                <li><a href="about.html" class="nav-link"><i class="fas fa-user"></i> О себе</a></li>
+                <li><a href="skills.html" class="nav-link active"><i class="fas fa-toolbox"></i> Мои навыки</a></li>
+                <li><a href="gallery.html" class="nav-link"><i class="fas fa-images"></i> Галерея</a></li>
+                <li><a href="facts.html" class="nav-link"><i class="fas fa-lightbulb"></i> Факты</a></li>
+                <li><a href="contacts.html" class="nav-link"><i class="fas fa-phone"></i> Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="skills-page">
+        <section class="skills-intro">
+            <h2><i class="fas fa-star"></i> Мои навыки</h2>
+            <p>За время обучения я освоил множество полезных навыков, которые помогают мне создавать качественные веб-проекты.</p>
+        </section>
+
+        <!-- Список навыков -->
+        <section class="skills-list-section">
+            <h3><i class="fas fa-check-circle"></i> Что я уже умею</h3>
+            <ul class="skills-list">
+                <li><i class="fab fa-html5"></i> Работа с HTML и CSS — создание структурированных и стилизованных веб‑страниц</li>
+                <li><i class="fab fa-js"></i> Основы JavaScript — написание интерактивных элементов для веб‑сайтов</li>
+                <li><i class="fas fa-folder-open"></i> Работа с файлами и папками — организация структуры проекта</li>
+                <li><i class="fas fa-search"></i> Поиск и анализ информации в интернете — эффективное использование поисковых систем</li>
+                <li><i class="fab fa-github"></i> Базовое владение Git и GitHub — контроль версий и совместная работа над проектами</li>
+                <li><i class="fas fa-mobile-alt"></i> Создание адаптивного дизайна — обеспечение корректного отображения сайта на разных устройствах</li>
+                <li><i class="fas fa-chart-line"></i> Основы SEO — оптимизация контента для поисковых систем</li>
+                <li><i class="fas fa-paint-brush"></i> Работа с графическими редакторами — базовое редактирование изображений</li>
+            </ul>
+        </section>
+
+        <!-- Таблица навыков -->
+        <section class="skills-table-section">
+            <h3><i class="fas fa-chart-simple"></i> Оценка моих навыков (по 10‑балльной шкале)</h3>
+            <div class="table-wrapper">
+                <table class="skills-table">
+                    <thead>
+                        <tr>
+                            <th>Навык</th>
+                            <th>Уровень (из 10)</th>
+                            <th>Комментарий</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fab fa-html5"></i> HTML</td>
+                            <td>9</td>
+                            <td>Уверенное владение всеми основными тегами и атрибутами</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fab fa-css3-alt"></i> CSS</td>
+                            <td>8</td>
+                            <td>Хорошо владею Flexbox и Grid, создаю адаптивные макеты</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fab fa-js"></i> JavaScript</td>
+                            <td>6</td>
+                            <td>Базовые знания, умею создавать простые интерактивные элементы</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-folder-open"></i> Работа с файлами</td>
+                            <td>7</td>
+                            <td>Организую структуру проекта, работаю с разными форматами файлов</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-search"></i> Поиск информации</td>
+                            <td>10</td>
+                            <td>Быстро нахожу нужную информацию, фильтрую источники</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fab fa-github"></i> Git/GitHub</td>
+                            <td>5</td>
+                            <td>Базовые операции: коммиты, пул‑реквесты, ветвление</td>
+                        </tr>
+                        <tr>
+                            <td><i class="fas fa-mobile-alt"></i> Адаптивный дизайн</td>
+                            <td>7</td>
+                            <td>Создаю макеты, корректно отображающиеся на разных устройствах</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Макс. Все права защищены</p>
+            <p class="js-status"><i class="fas fa-code"></i> Сайт работает на современном HTML/CSS</p>
+        </div>
+    </footer>
+
+    <script src="theme.js"></script>
+</body>
+</html>
